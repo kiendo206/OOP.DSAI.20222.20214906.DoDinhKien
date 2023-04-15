@@ -5,9 +5,9 @@ public class Calculator {
 	public static void main(String[] args) {
 		// Input the numbers
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Input the first number: ");
+		System.out.print("Enter the first number: ");
 		double num1 = sc.nextDouble();
-		System.out.print("Input the second number: ");
+		System.out.print("Enter the second number: ");
 		double num2 = sc.nextDouble();
 		// Calculate sum, difference, produce and quotient
 		System.out.printf("Sum of two numbers: %f%n", num1 + num2);
