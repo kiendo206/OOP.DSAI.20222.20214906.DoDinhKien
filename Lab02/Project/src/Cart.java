@@ -24,17 +24,6 @@ public class Cart {
 		        break;
 		    }
 	}
-	// 2.1 Overloading by differing types of parameter 
-		public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
-			for (DigitalVideoDisc disc : dvdList) {
-				addDigitalVideoDisc(disc);
-			}
-		}
-	//2.2. Overloading by differing the number of parameters 
-		public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
-			addDigitalVideoDisc(dvd1);
-			addDigitalVideoDisc(dvd2);
-		}
 	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
 		for(int i = 0; i < MAX_NUMBERS_ORDERED; i++)
 		    if(itemsOrdered[i] == disc) {
