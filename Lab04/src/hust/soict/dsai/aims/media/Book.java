@@ -2,16 +2,13 @@ package hust.soict.dsai.aims.media;
 import java.util.*;
 
 
-public class Book {
+public class Book extends Media {
 	
 	private int id;
-	private String title;
-	private String category;
-	private float cost;
 	private List<String> authors = new ArrayList<String>();
 	
 	public Book() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	public List<String> getAuthors() {
 		return authors;
