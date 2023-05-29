@@ -8,34 +8,24 @@ public class DigitalVideoDisc extends Media{
 
 	public DigitalVideoDisc(String title) {
 		super();
-		this.title=title;
 		this.id = ++nbDigitalVideoDiscs;
 	}
 
 	public DigitalVideoDisc(String title, String category, float cost) {
 		super();
-		this.title = title;
-		this.category = category;
-		this.cost = cost;
 		this.id = ++nbDigitalVideoDiscs;
 	}
 
 	public DigitalVideoDisc(String title, String category, String director, float cost) {
 		super();
-		this.title = title;
-		this.category = category;
 		this.director = director;
-		this.cost = cost;
 		this.id = ++nbDigitalVideoDiscs;
 	}
 
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
 		super();
-		this.title = title;
-		this.category = category;
 		this.director = director;
 		this.length = length;
-		this.cost = cost;
 		this.id = ++nbDigitalVideoDiscs;
 	}
 
@@ -57,12 +47,12 @@ public class DigitalVideoDisc extends Media{
 
 	// 6
 	public boolean isMatch(String title) {
-		return this.title.equalsIgnoreCase(title);
+		return this.getTitle().equalsIgnoreCase(title);
 	}
 
 	public String toString() {
-		return "DVD - Title: " + title + " - Category: " + category + " - Director: " + director + " - Length: "
-				+ length + " - Price: $" + cost;
+		return "DVD - Title: " + getTitle() + " - Category: " + getCategory() + " - Director: " + director + " - Length: "
+				+ length + " - Price: $" + getCost();
 	}
 
 }
