@@ -54,5 +54,16 @@ public abstract class Media {
 	public void setAddedDate(Date addedDate) {
 		this.addedDate = addedDate;
 	}
+	
+	public boolean equals(Object obj) {
+	    if (this == obj) {
+	        return true;
+	    }
+	    if (obj == null || getClass() != obj.getClass()) {
+	        return false;
+	    }
+	    Media other = (Media) obj;
+	    return this.title.equals(other.title);
+	}
 
 }
