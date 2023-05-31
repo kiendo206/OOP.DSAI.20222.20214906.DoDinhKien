@@ -14,6 +14,11 @@ public abstract class Media {
 		this.category=category;
 		this.cost=cost;
 	}
+	public Media(String title) {
+		super();
+		this.title=title;
+	}
+	
 	public Media() {
 		super();
 	}
