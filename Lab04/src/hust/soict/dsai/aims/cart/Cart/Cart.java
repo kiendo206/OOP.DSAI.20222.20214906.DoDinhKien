@@ -43,7 +43,15 @@ public class Cart {
 	    }
 	    
 	    return totalCost;
-	}		
+	}
+	public void sortCartCostTitle() {
+    	Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+    }
+    
+    public void sortCartTitleCost() {
+    	Collections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+    }
+    
 	public void printCart() {
         System.out.println("***********************CART***********************");
         System.out.println("Ordered Items:");
@@ -60,6 +68,10 @@ public class Cart {
         System.out.printf("Total cost: %.2f\n", totalCost);
         System.out.println("***************************************************");
     }
+
+	public ArrayList<Media> getItemsOrdered() {
+		return itemsOrdered;
+	}
 }
 /*
 	public void searchByID(int id) {
