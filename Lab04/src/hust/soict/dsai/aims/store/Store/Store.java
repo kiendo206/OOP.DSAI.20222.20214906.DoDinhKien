@@ -37,5 +37,24 @@ public class Store {
             System.out.println("Media not found in the store.");
         }
     } 
-    
+    public void printItemsInStore() {
+        System.out.println("************************* ITEMS IN THE STORE *************************");
+        if (itemsInStore.isEmpty()) {
+            System.out.println("The store is empty.");
+        } else {
+        	for (Media media : itemsInStore) {
+                System.out.println(media.toString());
+                System.out.println("---------------------------------------------------------------------");
+            }
+        }
+        System.out.println("**********************************************************************");
+    }
+
+	public ArrayList<Media> getItemsInStore() {
+		return itemsInStore;
+	}
+
+	public int getMaxSize() {
+		return maxSize;
+	}
 }
