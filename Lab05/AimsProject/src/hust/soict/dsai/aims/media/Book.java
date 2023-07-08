@@ -1,63 +1,67 @@
 package hust.soict.dsai.aims.media;
+
 import java.util.*;
+import java.text.*;
 
-
-public class Book extends Media {
+public class Book extends Media{
 	
 	private int id;
 	private List<String> authors = new ArrayList<String>();
-	
 	public Book() {
-		
-	}
-	public Book(int id, String title, String category, float cost) {
-		super(id, title, category, cost);
-	}
-	public Book(String title, String category, float cost, int id, List<String> authors) {
-		super(title, category, cost);
-		this.id=id;
-		this.authors=authors;
+		// TODO Auto-generated constructor stub
 	}
 	public Book(String title, String category, float cost) {
 		super(title, category, cost);
+    	Date dateAdded = new Date();
+    	this.dateAdded = dateAdded;
 	}
-	public Book(String title) {
-		super(title);
-	}
-	
-	public List<String> getAuthors() {
-		return authors;
-	}
-
-	public void setAuthors(List<String> authors) {
+	public Book(String title, String category, List<String> authors, float cost) {
+		super(title, category, cost);
 		this.authors = authors;
+    	Date dateAdded = new Date();
+    	this.dateAdded = dateAdded;
 	}
-	
-	public void addAuthor(String authorName) {
-		if(!(authors.contains(authorName))) {
-			authors.add(authorName);
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public void addAuthor(String authorName) throws IllegalArgumentException {
+		try {
+			if (authors.contains(authorName)) {
+				throw new IllegalArgumentException("ERROR: The author has already been added");
+			}
+			else {
+				authors.add(authorName);
+				System.out.println("Author added successfully");
+			}
+		}
+		catch (IllegalArgumentException e){
+			System.out.println("The author has already been added");
 		}
 	}
-	public void removeAuthor(String authorName) {
-		if((authors.contains(authorName))) {
-			authors.remove(authorName);
+	public void removeAuthor(String authorName) throws IllegalArgumentException {
+		try {
+			if (!(authors.contains(authorName))) {
+				throw new IllegalArgumentException("ERROR: The author has not been added");
+			}
+			else {
+				authors.remove(authorName);
+				System.out.println("Author removed successfully");
+			}
+		}
+		catch (IllegalArgumentException e){
+			System.out.println("The author has not been added");
 		}
 	}
-	private String authorsToString() {
-        StringBuilder sb = new StringBuilder();
-        for (String author : authors) {
-            sb.append(author).append(", ");
-        }
-        sb.setLength(sb.length() - 2);
-        return sb.toString();
-    }
 	public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Book Title: ").append(getTitle()).append("\n");
-        sb.append("Category: ").append(getCategory()).append("\n");
-        sb.append("Authors: ").append(authorsToString()).append("\n");
-        sb.append("Cost: ").append(getCost());
-        return sb.toString();
-    }
-
+		Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		return "Book: " + title + "\n" 
+				+ "ID: " + Integer.toString(id) + "\n"
+				+ "Category: " + this.category + "\n" 
+				+ "Cost: " + Float.toString(this.cost) + " $\n"
+				+ "Date Added: " + formatter.format(dateAdded) + "\n"
+				+ "Author(s): " + String.join(", ", authors) + "\n";
+	}
 }
